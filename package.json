@@ -1,6 +1,6 @@
 {
   "name": "habibi-baileys",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Habibi Baileys — Custom WhatsApp Multi-Device Library by HabibiOfficial",
   "main": "src/index.js",
   "type": "module",
