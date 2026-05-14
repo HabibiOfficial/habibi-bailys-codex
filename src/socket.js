@@ -70,6 +70,9 @@ export class HabibiSocket {
 
     this.media = new MediaHelper(this.sock);
 
+    this.sock.ev.on("creds.update", saveCreds);
+    this._setupEvents();
+
     if (
       this.options.usePairingCode &&
       this.options.pairingNumber &&
@@ -77,13 +80,15 @@ export class HabibiSocket {
     ) {
       await new Promise((r) => setTimeout(r, 3000));
       const number = this.options.pairingNumber.replace(/[^0-9]/g, "");
-      const code = await this.sock.requestPairingCode(number);
-      HabibiLogger.system("pairing", `Kode pairing: ${chalk_bold(code)}`);
-      HabibiLogger.system("pairing", "Buka WA → Perangkat Tertaut → Tautkan Perangkat → Masukkan Nomor");
+      try {
+        const code = await this.sock.requestPairingCode(number);
+        HabibiLogger.system("pairing", `Kode pairing: ${chalk_bold(code)}`);
+        HabibiLogger.system("pairing", "Buka WA → Perangkat Tertaut → Tautkan Perangkat → Masukkan Nomor");
+      } catch (e) {
+        HabibiLogger.error("pairing", `Gagal minta kode: ${e.message}`);
+        HabibiLogger.warn("pairing", "Pastikan nomor sudah benar di config.js (format: 628xxx)");
+      }
     }
-
-    this.sock.ev.on("creds.update", saveCreds);
-    this._setupEvents();
 
     return this;
   }
