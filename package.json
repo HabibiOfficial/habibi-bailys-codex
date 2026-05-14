@@ -1,0 +1,38 @@
+{
+  "name": "habibi-baileys",
+  "version": "1.0.0",
+  "description": "Habibi Baileys — Custom WhatsApp Multi-Device Library by HabibiOfficial",
+  "main": "src/index.js",
+  "type": "module",
+  "author": "HabibiOfficial",
+  "license": "MIT",
+  "homepage": "https://github.com/HabibiOfficial/habibi-bailys-codex#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HabibiOfficial/habibi-bailys-codex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HabibiOfficial/habibi-bailys-codex/issues"
+  },
+  "keywords": [
+    "whatsapp",
+    "baileys",
+    "multi-device",
+    "habibi",
+    "bot",
+    "whatsapp-bot"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "7.0.0-rc11",
+    "pino": "^9.0.0",
+    "chalk": "^5.3.0"
+  },
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE"
+  ]
+}
